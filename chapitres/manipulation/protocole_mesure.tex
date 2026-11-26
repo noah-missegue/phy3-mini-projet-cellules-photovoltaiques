@@ -1,0 +1,69 @@
+\newpage
+\subsubsection{Protocole de mesure}
+
+\noindent\textbf{Matériel}
+\medskip
+
+Le \tabref{tab:materiel-trombone} donne le matériel utilisé pour la manipulation.
+
+\begin{table}[H]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{*{4}{>{\centering\arraybackslash}m{0.22\linewidth}}}
+        \toprule
+        \textbf{Description} & \textbf{Type/Matériel} & \textbf{Marque} & \textbf{Modèle} \\
+        \midrule
+        Mesure de la vitesse du son & Trombone de Koenig & --- & --- \\
+        Émission du son & Haut-parleur & --- & --- \\
+        Alimentation du haut-parleur & Générateur de fréquence & Agilent & 33502A \\
+        Mesure de la fréquence & Fréquencemètre & erfi & Funktionsgenerator H 38.033 \\
+        Réception du son & Microphone & --- & --- \\
+        Visualisation du signal & Oscilloscope & Agilent & DSO3202A \\
+        Relevé de la température & Thermomètre & Leybold & S24 005 \\
+        Gaz étudiés & Air, CO$_2$ & --- & --- \\
+        \bottomrule
+    \end{tabular}
+    \caption{Matériel utilisé pour le trombone de Koenig}
+    \label{tab:materiel-trombone}
+\end{table}
+
+\noindent\textbf{Partie calculs théoriques avant mesure}
+\begin{enumerate}
+    \item Relever la température au voisinage du tube comme le montre la \figref{fig:temperature-tube}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{./images/trombone/relever_temperature_tube.jpeg}
+        \caption{Relevé de la température au voisinage du tube.}
+        \label{fig:temperature-tube}
+    \end{figure}
+    \item Calculer la valeur théorique attendu de la célérité pour les 2 gaz étudiés (air, CO$_2$)
+
+\end{enumerate}
+\medskip
+
+\noindent\textbf{Montage expérimental}
+
+Le trombone de Koenig (\figref{fig:montage-trombone}) est composé d'un tube en U dont une partie est fixe et l'autre mobile (curseur gradué). Un haut-parleur, alimenté par un générateur de fréquence, est placé à l'entrée du tube. Un microphone, placé à la sortie, est relié à un oscilloscope. Le générateur est également relié à un fréquencemètre afin de mesurer $f$ avec précision.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{./images/trombone/montage.jpeg}
+    \caption{Montage du trombone de Koenig.}
+    \label{fig:montage-trombone}
+\end{figure}
+\medskip
+
+\noindent\textbf{Partie expérimentale}
+
+Les mesures sont répétées pour chacun des deux gaz (air, CO$_2$), le tube étant rempli du gaz étudié avant chaque série.
+\begin{enumerate}
+    \item Remplir le tube avec le gaz à étudier et relever la température au voisinage du tube.
+    \item Régler le générateur sur une première fréquence $f$.
+    \item Placer le curseur en position initiale et le déplacer lentement jusqu'à observer un maximum de l'amplitude du signal du microphone sur l'oscilloscope. Relever la position $x_1$ du curseur.
+    \item Continuer à déplacer le curseur et relever les positions des $p$ maxima suivants, afin de déterminer $\Delta x$ sur plusieurs maxima (plus $p$ est grand, plus l'incertitude relative sur $\lambda$ est faible).
+    \item Noter les incertitudes de lecture sur la position du curseur et sur la fréquence.
+    \item Répéter les points 2 à 5 pour des fréquences croissantes.
+    \item Changer de gaz (de l'air au CO$_2$) en se référerant au document \citeit{descriptif_tpe12} et répéter la procédure complète.
+    \item Pour chaque gaz, reporter $\Delta x$ en fonction de $p/(2f)$, la pente de la régression linéaire donne la vitesse du son $v$ (\refit{équation}{\ref}{eq:vitesse-mesuree}).
+
+\end{enumerate}

@@ -1,0 +1,112 @@
+\subsubsection{Rappels théoriques}
+
+\setcounter{equation}{0}
+\renewcommand{\theequation}{3.\arabic{equation}}
+
+\notionrappel{Vitesse de propagation d'une onde harmonique :}
+\begin{equation}
+  v = \frac{\lambda}{P} = \lambda \cdot f
+  \label{eq:vitesse-onde}
+\end{equation}
+\begin{legendevar}
+  \item $v$ : vitesse de propagation du son [m/s]
+  \item $\lambda$ : longueur d'onde [m]
+  \item $P$ : période de l'onde [s]
+  \item $f$ : fréquence [Hz]
+\end{legendevar}
+
+\newpage
+
+\notionrappel{Schéma du Trombone de Koenig :}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{./images/trombone/schema_trombone.png}
+    \caption{Schéma du trombone de Koenig.}
+    \label{fig:schema-trombone}
+\end{figure}
+
+\notionrappel{Interférence constructive (maxima) :}
+\begin{equation}
+  r_1 - r_2 = n \cdot \lambda
+  \label{eq:interference-constructive}
+\end{equation}
+\begin{legendevar}
+  \item $r_1$ : longueur du chemin ACD (partie mobile du trombone) [m]
+  \item $r_2$ : longueur du chemin ABD (partie fixe) [m]
+  \item $n$ : nombre entier [-]
+\end{legendevar}
+
+\notionrappel{Interférence destructive (minima) :}
+\begin{equation}
+  r_1 - r_2 = \left(n + \frac{1}{2}\right) \cdot \lambda
+\end{equation}
+
+\notionrappel{Déplacement entre deux maxima :}
+\begin{equation}
+  r_1' - r_1 = p \cdot \lambda \qquad (p = m - n)
+  \label{eq:difference-maxima}
+\end{equation}
+\begin{legendevar}
+  \item $r_1'$ : nouvelle longueur du chemin ACD après déplacement [m]
+  \item $p$ : nombre de maxima franchis lors du déplacement [-]
+\end{legendevar}
+
+Le tube étant en forme de U, un déplacement $\Delta x$ du curseur allonge le chemin ACD de $2\,\Delta x$ :
+\begin{equation}
+  r_1' - r_1 = 2 \cdot \Delta x
+\end{equation}
+
+Le déplacement $\Delta x$ se déduit des positions du curseur relevées sur la règle :
+\begin{equation}
+  \Delta x = x_2 - x_1
+  \label{eq:deplacement-positions}
+\end{equation}
+\begin{legendevar}
+  \item $x_1$ : position du curseur au premier maximum [m]
+  \item $x_2$ : position du curseur au $p$-ième maximum suivant [m]
+\end{legendevar}
+
+\notionrappel{Relation entre déplacement et longueur d'onde :}
+\begin{equation}
+  \Delta x = p \cdot \frac{\lambda}{2}
+  \quad\Longleftrightarrow\quad
+  \lambda = \frac{2\,\Delta x}{p}
+  \label{eq:deplacement-longueur-onde}
+\end{equation}
+\begin{legendevar}
+  \item $\Delta x$ : déplacement du curseur entre deux maxima [m]
+\end{legendevar}
+
+L'incertitude relative sur $\lambda$ est la même que celle sur $\Delta x$ : elle est d'autant plus faible que $\Delta x$, donc $p$, est grand.
+
+\notionrappel{Vitesse du son déduite de la mesure (pente de la régression) :}
+\begin{equation}
+  \Delta x = \frac{p}{2\,f} \cdot v
+  \quad\Longleftrightarrow\quad
+  v = \frac{2\,f\,\Delta x}{p}
+  \label{eq:vitesse-mesuree}
+\end{equation}
+
+\notionrappel{Vitesse du son théorique dans un gaz :}
+\begin{equation}
+  v_{th} = \sqrt{\frac{\gamma \cdot R \cdot T}{M}}
+  \label{eq:vitesse-theorique}
+\end{equation}
+\begin{legendevar}
+  \item $\gamma$ : facteur adiabatique [-]
+  \item $R$ : constante des gaz parfaits, $8{,}314$ [J/(mol$\cdot$K)]
+  \item $T$ : température absolue du gaz [K]
+  \item $M$ : masse molaire du gaz [kg/mol]
+\end{legendevar}
+
+\notionrappel{Facteur adiabatique :}
+\begin{equation}
+  \gamma = \frac{C_p}{C_v} = \frac{i + 2}{i}
+  \label{eq:facteur-adiabatique}
+\end{equation}
+\begin{legendevar}
+  \item $C_p$, $C_v$ : chaleurs molaires à pression, respectivement volume, constant(e) [J/(mol$\cdot$K)]
+  \item $i$ : nombre de degrés de liberté des molécules du gaz [-]
+\end{legendevar}
+
+Pour un gaz diatomique (air) $i = 5$ et pour un gaz triatomique linéaire (CO$_2$) $i = 7$, la valeur tabulée de $\gamma$ s'écarte toutefois légèrement de cette valeur théorique, notamment pour le CO$_2$.

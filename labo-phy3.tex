@@ -1,0 +1,161 @@
+%Gestion du corps du document latex
+
+% Paramétrage du papier utilisé
+\documentclass[a4paper,12pt,oneside]{article}
+
+% Ne pas toucher, nécessaire à la mise en forme
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} % Nouvelle norme pour codage des caractères
+\usepackage{lmodern} % Nouvelle forme de la fonte ComputerModern
+\usepackage[french]{babel} % Règles typographiques françaises, césures
+\usepackage{csquotes}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliographie.bib}
+\usepackage{graphicx} % Insertion images
+\usepackage{epstopdf} % Convertir les images eps vers pdf
+\epstopdfsetup{outdir=./Images/converted_to_pdf/} % Dossier de sortie des images converties
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm, showframe=false]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs} % \toprule, \midrule, \bottomrule
+\usepackage{array} % colonnes centrées (>{\centering\arraybackslash})
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{tiret}{\space-\space}
+\captionsetup[table]{name=Tableau,labelsep=tiret}
+\captionsetup[figure]{name=Figure,labelsep=tiret}
+\usepackage{float} % placement [H] des flottants
+\newfloat{graphique}{H}{lgr}
+\floatname{graphique}{Graphique}
+\captionsetup[graphique]{labelsep=tiret}
+% Liste des graphiques : même mise en forme que \listoffigures / \listoftables
+\makeatletter
+\newcommand{\listofgraphiques}{\section*{Liste des graphiques}\@starttoc{lgr}}
+\let\l@graphique\l@figure
+\makeatother
+\usepackage{karnaugh-map} % tables de Karnaugh
+\usepackage[american]{circuitikz} % schéma à portes logiques
+\usetikzlibrary{babel} % compatibilité TikZ avec babel french
+\usepackage[hidelinks]{hyperref} % liens sans cadre rouge
+\newcommand{\figref}[1]{\underline{\textit{Figure~\ref{#1}}}}
+\newcommand{\tabref}[1]{\underline{\textit{Tableau~\ref{#1}}}}
+\newcommand{\refit}[3]{\underline{\textit{#1~#2{#3}}}} % référence dans le texte : italique souligné
+\newcommand{\citeit}[1]{\underline{\textit{\cite{#1}}}}
+\usepackage{pdfpages}
+\usepackage{color}
+
+
+% fichier avec les constantes (à adapter pour les étudiants)
+\input{chapitres/constantes.tex}
+
+% Entête et pieds de page (A ADAPTER)
+\pagestyle{empty}
+\usepackage{fancyhdr}
+\setlength{\headheight}{27.06pt}
+\pagestyle{fancy}
+% Entête :
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L]{Labo \nbrlabo : \titre} 
+\fancyhead[R]{Rapport de laboratoire} 
+% Pied de page
+\fancyfoot{} % clear all footer fields
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[R]{Page \thepage} 
+\fancyfoot[L]{HEIG-VD | MTD \& NME}
+
+% debut du corps du rapport 
+\begin{document}
+	% Enlève la tabulation au début des retours à la ligne
+	\setlength{\parindent}{0pt}
+	% Espacement de 0,3 cm entre les paragraphes
+	% Espacement de 0,3 cm entre les paragraphes
+	\setlength{\parskip}{0.3cm}
+	
+	% première page
+	\input{chapitres/premiere_page.tex}
+	% enlève le numero sur la premiere page
+	\thispagestyle{empty}
+	\newpage
+	\pagenumbering{roman}
+
+	% table des matières
+	\tableofcontents
+	\newpage
+
+	% tables des figures et des tableaux
+	\renewcommand{\listfigurename}{Liste des figures}
+	\listoffigures
+	\listofgraphiques
+	\listoftables
+	\newpage
+	\pagenumbering{arabic}
+	
+	% ici débute le corps du rapport
+	\section{Introduction}
+	\input{chapitres/introduction/contexte.tex}
+	\input{chapitres/introduction/but_objectifs.tex}
+	\input{chapitres/introduction/repartition_travail.tex}
+	\newpage
+
+	%Manipulation1
+	\section{Manipulation 1}
+	\input{chapitres/manipulation1/introduction.tex}
+	\subsection{Méthode - Approche}
+	\input{chapitres/manipulation1/rappels_theoriques.tex}
+	\input{chapitres/manipulation1/protocole_mesure.tex}
+	\newpage
+	\subsection{Expériences}
+	\input{chapitres/manipulation1/experience1.tex}
+	\input{chapitres/manipulation1/experience2-3.tex}
+	\input{chapitres/manipulation1/experience4.tex}
+	\input{chapitres/manipulation1/experience5.tex}
+	\input{chapitres/manipulation1/experience6.tex}
+	\input{chapitres/manipulation1/experience7.tex}
+	\input{chapitres/manipulation1/experience8.tex}
+	\input{chapitres/manipulation1/experience9.tex}
+	\input{chapitres/manipulation1/experience10.tex}
+	\input{chapitres/manipulation1/conclusion.tex}
+	\newpage
+
+	%Manipulation1
+	\section{Manipulation 2 - Trombone de Koenig}
+	\input{chapitres/manipulation2/introduction.tex}
+	\subsection{Méthode - Approche}
+	\input{chapitres/manipulation2/rappels_theoriques.tex}
+	\input{chapitres/manipulation2/protocole_mesure.tex}
+	\newpage
+	\subsection{Résultats - Analyse}
+	\input{chapitres/manipulation2/donnees_brutes.tex}
+	\input{chapitres/manipulation2/resultats_reduits_analyse_discussion.tex}
+	\input{chapitres/manipulation2/conclusion.tex}
+	\newpage
+	\section{Conclusion}
+	\input{chapitres/conclusion/revue_objectifs.tex}
+	\input{chapitres/conclusion/resultat_principaux.tex}
+
+	%Section pour la signature
+	\newpage
+	\section{Signatures}
+  
+    Yverdon-les-Bains \today \\
+    
+	\vspace{2.5cm}
+	\noindent
+	\begin{tabular}{@{}p{0.45\textwidth}@{\hspace{0.1\textwidth}}p{0.45\textwidth}@{}}
+	  \rule{\linewidth}{0.4pt} & \rule{\linewidth}{0.4pt} \\
+	   M. Thiébaud & N. Missègue
+	\end{tabular}
+	
+	\newpage
+
+    % si des annexes sont nécessaires ajouter : 
+    \printbibliography[heading=bibnumbered,title={Bibliographie}]
+	% Changement de notation en lettre : 
+	%\appendix
+	% insertion d'une nouvelle page
+	%\newpage
+	% Ajouter un fichier latec dans le fichier courant
+	%\input{Chapitres/cdc.tex}
+
+
+	
+%Fin du document
+\end{document}
